@@ -1,0 +1,118 @@
+:root {
+  --color-bg: #FAF7F2;
+  --color-text: #1A1A17;
+  --color-accent: #1D4E42;
+  --color-muted: #6B6558;
+  --font-body: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+.page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin: 0 0 0.25rem;
+}
+
+header .location {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+  margin: 0 0 2rem;
+}
+
+main {
+  counter-reset: section;
+}
+
+section {
+  border-top: 1px solid var(--color-muted);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  counter-increment: section;
+}
+
+section h2 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  position: relative;
+}
+
+section h2::before {
+  content: counter(section, decimal-leading-zero) " \2014\0020";
+  color: var(--color-accent);
+  font-variant-numeric: oldstyle-nums;
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 1rem 0 0.25rem;
+}
+
+.meta {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+  margin: 0 0 0.5rem;
+}
+
+p,
+ul {
+  margin: 0 0 0.75rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+article + article {
+  margin-top: 1.5rem;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (min-width: 80em) {
+  .page {
+    padding-left: 5rem;
+  }
+
+  section h2::before {
+    position: absolute;
+    left: -3.5rem;
+  }
+}
